@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>calculator</title>
+        <style>
+        body {
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        }
+        .cal-box {
+        width: 290px;
+        height: 400px;
+        box-shadow: -5px -5px 10px #eee, 5px 5px 10px #eee;
+        background: #fff;
+        border-radius: 5px;
+        text-align: center;
+        padding: 20px 0px;
+        }
+        .cal-box .input_result{
+        padding: 0;
+        width: 240px;
+        border: none;
+        border-bottom: 2px solid red;
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: sans-serif;
+        text-align: left;
+        text-align: right;
+        margin: 0px;
+        outline: none;
+        font-weight: bolder;
+        }
+        .sign_box {
+        padding: 5px;
+        margin: 5px;
+        }
+        .sign_box button {
+        border: none;
+        padding:19px;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #fff;
+        font-weight: bolder;
+        background: #bbb;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: 0 0 5px #ff6b81;
+        }
+        .sign_box>.clear{
+            background: #2196f3!important;
+            box-shadow: 0 0 10px #2196f3;
+        }
+        .sign_box button:nth-child(odd){
+        background: #d640c4c4;
+        }
+        .sign_box button:nth-child(even){
+        background: #bbb;
+        }
+        .sign_box-1 {
+        padding: 5px 20px;
+        }
+        .sign_box-1>button {
+        border: none;
+        padding: 20px;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #fff;
+        font-weight: bolder;
+        background: #bbb;
+        border-radius: 30px;
+        outline: none;
+        margin: 0px 5px;
+        box-shadow: 0 0 10px red;
+        }
+        .sign_box-1>button:nth-child(odd){
+        background: #d640c4c4;
+        }
+        .sign_box-1>button:nth-child(even){
+        background: #bbb;
+        }
+        .sign_box-1 >.equals{
+        background: #2196f3!important;
+        box-shadow: 0 0 10px #2196f3;
+        }
+        .sign_box-1>.sample{
+        padding: 15px;
+        }
+        .time_box{
+       position: relative;
+        top: -18px;
+        left: -79px;
+        font-size: 13px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="cal-box">
+            <span class="time_box">
+                <span class="date">23</span>
+                <span class="time">10</span>
+                <span class="mint"></span>
+            </span>
+            <br>
+            <input type="text" class="input_result">
+            <div class="sign_box">
+                <button class="clear">cls</button>
+                <button>del</button>
+                <button onclick="number('%');">%</button>
+                <button onclick="number('/');">/</button>
+            </div>
+            <div class="sign_box-1">
+                <button onclick="number(7);">7</button>
+                <button onclick="number(8);">8</button>
+                <button onclick="number(9);">9</button>
+                <button onclick="number('*');">*</button>
+            </div>
+            <div class="sign_box-1">
+                <button onclick="number(4);">4</button>
+                <button onclick="number(5);">5</button>
+                <button onclick="number(6);">6</button>
+                <button onclick="number('-');">-</button>
+            </div>
+            <div class="sign_box-1">
+                <button onclick="number(1);">1</button>
+                <button onclick="number(2);">2</button>
+                <button onclick="number(3);">3</button>
+                <button onclick="number('+');">+</button>
+            </div>
+            <div class="sign_box-1">
+                <button class="sample">😀</button>
+                <button onclick="number(0);">0</button>
+                <button onclick="number('.');">.</button>
+                <button  class="equals" onclick="equal()">=</button>
+            </div>
+        </div>
+        <script>
+        var input=document.querySelector(".input_result")
+        var cls=document.querySelector(".clear")
+        function number(e){
+        input.value+=e;
+        }
+        function equal(){
+        input.value=eval(input.value);
+        console.log(eval(input.value))
+        }
+        cls.onclick=function(){
+        input.value='';
+        }
+        // TIMEING SECTION START HERE
+        var date_box=document.querySelector(".date")
+        var time_box=document.querySelector(".time")
+        var min_box=document.querySelector(".mint")
+
+         var date=new Date();
+            date_box.innerHTML=date.getFullYear()+'-'+date.getMonth()+1+'-'+date.getDate()+'//';
+         time_box.innerHTML=date.getHours();
+        var timeing= min_box.innerHTML=date.getMinutes();
+        setInterval(timeing,60000);
+        
+        </script>
+    </body>
+</html>
