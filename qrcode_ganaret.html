@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>qr code genarate js</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background: #eee;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .box {
+            padding: 30px;
+            box-shadow: 0 0 20px #5f45f0;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+        }
+
+        .box #code {
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0px;
+            background: lightblue;
+            color: #000;
+            font-size: 16px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .box #code_btn {
+            border: none;
+            padding: 10px 30px;
+            background: cornflowerblue;
+            font-size: 20px;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            color: #000;
+            text-transform: capitalize;
+        }
+
+        .box #code_img {
+            width: 143px;
+            height: 144px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <img src="images/qrcode-removebg-preview.png" id="code_img"><br>
+        <input type="text" id="code"><br>
+        <button id="code_btn">start</button>
+    </div>
+    <script>
+        var code_img = document.querySelector("#code_img")
+        var code_input = document.querySelector("#code")
+        var codeBtn = document.querySelector("#code_btn")
+
+
+        codeBtn.addEventListener("click", function() {
+            var url = `https://api.qrserver.com/v1/create-qr-code/?size=133x133&data=${code_input.value}`;
+            code_img.src = url;
+        })
+
+    </script>
+</body>
+
+</html>
