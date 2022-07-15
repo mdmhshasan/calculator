@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>photo gelery</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            transition: .5s;
+            padding: 30px 0px;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .img_box {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid #f2f2f2;
+            margin: 10px;
+            box-shadow: -4px -4px 10px #eee, 4px 4px 10px #eee;
+        }
+        .img_box img {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .popup_box.img_active {
+            transition: .5s;
+            transform: translateZ(300px);
+            transform: translate(35vh, 10vh);
+        }
+        .popup_box {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: absolute;
+              width: 500px;
+            height: 500px;
+            transition: .5s ease-in-out;
+            transform: translate(35vh, -90vh);
+        }
+        .popup_img_box {
+            position: absolute;
+            width: 600px;
+            height: 500px;
+            background: rgba(0, 0, 0, 0.09);
+            backdrop-filter: blur(20px);
+            transition: .5s ease-in-out;
+        }
+        .popup_box span {
+            font-size: 30px;
+            color: #0bf2fc;
+            position: absolute;
+            left: calc(-6vh);
+            top: calc(3vh);
+            z-index: 1;
+            cursor: pointer;
+        }
+        .popup_box {
+            border-radius: 10px;
+        }
+        .popup_box img {
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            border: 3px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup_box">
+        <span class="clos_img"><i class="fa fa-plus"></i></span>
+        <img class="popup_img_box">
+    </div>
+    <section>
+        <div class="img_box"><img onclick="img('img/hero-1.jpg')" src="img/hero-1.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/hero-2.jpg')" src="img/hero-2.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/rost.png')" src="img/rost.png" /></div>
+        <div class="img_box"><img onclick="img('img/hero-3.jpg')" src="img/hero-3.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/img1.jpg')" src="img/img1.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/senguig.png')" src="img/senguig.png" /></div>
+        <div class="img_box"><img onclick="img('img/steak.jpg')" src="img/steak.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/testi-bg.jpg')" src="img/testi-bg.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/badrom.png')" src="img/badrom.png" /></div>
+        <div class="img_box"><img onclick="img('img/food.jpg')" src="img/food.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/hero-1.jpg')" src="img/hero-1.jpg" /></div>
+        <div class="img_box"><img onclick="img('img/img-1.jpg')" src="img/img-1.jpg" /></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+        var popup = document.querySelector(".popup_box");
+        var popupimg = document.querySelector(".popup_img_box");
+
+        function img(anything) {
+            popupimg.src = anything;
+            popup.classList.add("img_active")
+        }
+        var clos_img = document.querySelector(".clos_img");
+        clos_img.addEventListener("click", function() {
+            popup.classList.remove("img_active");
+        });
+
+    </script>
+</body>
+
+</html>
